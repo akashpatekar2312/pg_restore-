@@ -21,7 +21,6 @@ msg()
     echo
 }
 export PGPASSFILE="/root/.pgpass"
-echo "host   pgtms             tms             127.0.0.1/24            trust" >> /etc/postgresql/9.6/main/pg_hba.conf
 systemctl daemon-reload
 echo "Terminating all active sessions..."
 sudo -u postgres psql -d pgtms -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname='pgtms' AND state='active';"
@@ -128,3 +127,5 @@ fi
 # # Execute the structure command
 # sudo -u postgres $structure > /dev/null 2>&1
 unset PGPASSFILE
+
+sed -i '/host   pgtms             tms             127.0.0.1\/24            trust/d' "/etc/postgresql/9.6/main/pg_hba.conf"
