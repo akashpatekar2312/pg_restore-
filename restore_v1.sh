@@ -1,5 +1,6 @@
 #!/bin/bash
 # set -x
+export PGPASSFILE="/var/lib/postgresql/.pgpass"
 if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
    exit 1
@@ -20,7 +21,6 @@ msg()
     echo -e "\e[1m\e[92m$message\e[39m\e[0m"
     echo
 }
-export PGPASSFILE="/root/.pgpass"
 systemctl daemon-reload
 echo "Terminating all active sessions..."
 sudo -u postgres psql -d pgtms -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname='pgtms' AND state='active';"
