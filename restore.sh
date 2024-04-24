@@ -37,8 +37,8 @@ tblspc=("DFAPPL" "UTAPPL" "SEAPPL" "LODEVI" "TRAPPL" "ALAPPL" "IMLANE" "POAPPL" 
 while [ ${a} -le 23 ]
 do
     mkdir -p /var/lib/postgresql/datafiles/pgtms/${tblspc[a]} 2> /dev/null
-    chmod -R 777 /var/lib/postgresql/datafiles/pgtms/${tblspc[a]} /dev/null
-    chown postgres: /var/lib/postgresql/datafiles/pgtms/${tblspc[a]} /dev/null
+    chmod -R 777 /var/lib/postgresql/datafiles/pgtms/${tblspc[a]} 2> /dev/null
+    chown postgres: /var/lib/postgresql/datafiles/pgtms/${tblspc[a]} 2> /dev/null
     ((a++))
 done
 
