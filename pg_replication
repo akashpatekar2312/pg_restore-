@@ -1,0 +1,3 @@
+# STREAMING REPLICATION 
+1. Take backup of postgresql.conf of live server before making changes to it
+2.
