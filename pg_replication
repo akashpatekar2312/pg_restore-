@@ -1,3 +1,11 @@
 # STREAMING REPLICATION 
 1. Take backup of postgresql.conf of live server before making changes to it
-2.
+2. Make changes in the postgresql.conf like archive command,wal senders,wal size parameter
+3. Create a shared folder and mount it on the slave server
+4. create a user named replica and test the connectivity from slave server
+5. delete data directory from slave and also pgtms data directory and recreate only pgtms with all directories inside it
+6. Take base backup with replica user 
+7. delete or remove backup.label file from the slave server
+8.postgresql.conf file was copied from the main server so all the parameters have been changed so comment all the parameter in the slave server and remove comment
+symbol infront of hot_stand by parameter.
+
