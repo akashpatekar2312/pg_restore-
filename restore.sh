@@ -48,7 +48,7 @@ echo "2) Monthly"
 echo "3) Both"
 read -p "Enter your choice: " choice
 
-zcat /home/akash/recovery/rec.sql.gz | sudo -u postgres psql
+zcat /home/rec.sql.gz | sudo -u postgres psql
 if [ ${choice} = 1 ]; then
     read -e -p "Enter the name of the daily dump file followed by the path : " dump
     read -e -p "Enter the name of the daily structure file followed by the path: " str
